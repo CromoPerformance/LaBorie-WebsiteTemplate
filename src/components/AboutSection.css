@@ -1,0 +1,156 @@
+/* ── About Section ────────────────────────────────────────── */
+.about {
+  background: var(--white);
+  padding: calc(var(--section-v) + 40px) 0 var(--section-v);
+}
+
+.about__inner {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--pad-h);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 120px;
+  align-items: center;
+}
+
+/* ── Image column ─────────────────────────────────────────── */
+.about__images {
+  position: relative;
+  margin-bottom: 56px;
+}
+
+.about__img-bw {
+  width: 100%;
+  box-shadow: 0 8px 40px rgba(26, 23, 20, 0.12);
+  overflow: hidden;
+}
+.about__img-bw img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 20%;
+  filter: grayscale(100%) contrast(1.05);
+  display: block;
+}
+
+/* Small color photo — overlaps the big one at the bottom-right
+   corner, poking out below and to the side */
+.about__img-color {
+  position: absolute;
+  right: -40px;
+  bottom: -56px;
+  width: 50%;
+  box-shadow: 0 8px 40px rgba(26, 23, 20, 0.16);
+  overflow: hidden;
+  z-index: 2;
+}
+.about__img-color img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ── Text column ──────────────────────────────────────────── */
+.about__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.about__eyebrow {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 20px;
+}
+
+.about__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 3vw, 2.7rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--charcoal);
+  line-height: 1.12;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+}
+
+.about__rule {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 28px;
+}
+
+.about__body {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.82;
+  color: var(--stone);
+  max-width: 420px;
+  margin-bottom: 36px;
+}
+
+/* Link arrow — simple glyph, no circle */
+.about__read-more {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--forest);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+  transition: gap var(--dur) var(--ease);
+}
+.about__read-more .arrow {
+  font-size: 12px;
+  transition: transform var(--dur) var(--ease);
+}
+.about__read-more:hover { gap: 12px; }
+
+.about__cta {
+  background: var(--forest);
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border: none;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease);
+}
+.about__cta:hover { background: var(--forest-dark); }
+
+/* ── Mobile ───────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .about {
+    padding-top: var(--section-v);
+  }
+  .about__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 0 var(--pad-h-sm);
+  }
+  .about__images { order: 2; margin-bottom: 0; }
+  .about__content { order: 1; }
+  .about__img-color {
+    width: 56%;
+    right: -20px;
+    bottom: -32px;
+  }
+}

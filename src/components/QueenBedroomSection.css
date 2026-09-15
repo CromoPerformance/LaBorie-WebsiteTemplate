@@ -1,0 +1,154 @@
+/* ── Queen Bedroom / Rooms & Suites Section ───────────────── */
+.queen {
+  background: var(--white);
+}
+
+/* ── Main 100%-width split ────────────────────────────────── */
+.queen__hero {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  align-items: stretch;
+}
+
+/* Left text column */
+.queen__left {
+  padding: 80px 48px 80px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+}
+
+.queen__eyebrow {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 20px;
+}
+
+.queen__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--charcoal);
+  line-height: 1.10;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+}
+
+/* ── Tab strip ────────────────────────────────────────────── */
+.queen__tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+
+.queen__tab {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stone);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px 10px 0;
+  position: relative;
+  transition: color var(--dur) var(--ease);
+}
+.queen__tab:first-child { padding-left: 0; }
+
+.queen__tab--active { color: var(--forest); }
+.queen__tab--active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--forest);
+}
+
+/* Body copy */
+.queen__body {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.82;
+  color: var(--stone);
+  margin-bottom: 32px;
+  max-width: 420px;
+}
+
+/* Links */
+.queen__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.queen__read-more {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--forest);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap var(--dur) var(--ease);
+}
+.queen__read-more .arrow {
+  font-size: 12px;
+  transition: transform var(--dur) var(--ease);
+}
+.queen__read-more:hover { gap: 12px; }
+
+.queen__cta {
+  background: var(--forest);
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border: none;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease);
+}
+.queen__cta:hover { background: var(--forest-dark); }
+
+/* Right — full-height photo, NO sticky, NO parallax */
+.queen__right {
+  overflow: hidden;
+}
+
+.queen__main-photo,
+.queen__placeholder {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.queen__placeholder {
+  background: var(--gold);
+}
+
+/* ── Mobile ───────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .queen__hero { grid-template-columns: 1fr; }
+  .queen__left {
+    padding: 60px var(--pad-h-sm);
+  }
+  .queen__main-photo,
+  .queen__placeholder { min-height: 340px; }
+}

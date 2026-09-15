@@ -1,0 +1,279 @@
+/* ─────────────────────────────────────────
+   FONT FACES — Lucida Bright + NiveauGrotesk
+   ───────────────────────────────────────── */
+
+/* Lucida Bright — system font fallback chain.
+   If the user has it installed as a Windows font, the browser will find it.
+   If you have the .otf/.ttf file, place it in /public/fonts/ and uncomment below. */
+
+/*
+@font-face {
+  font-family: 'Lucida Bright';
+  src: url('/fonts/LucidaBright.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lucida Bright';
+  src: url('/fonts/LucidaBright-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lucida Bright';
+  src: url('/fonts/LucidaBright-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+*/
+
+@font-face {
+  font-family: 'NiveauGrotesk';
+  src: url('/fonts/NiveauGroteskRegular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NiveauGrotesk';
+  src: url('/fonts/NiveauGroteskLight.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NiveauGrotesk';
+  src: url('/fonts/NiveauGroteskMedium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─────────────────────────────────────────
+   DESIGN TOKENS — Shelbourne Premium System
+   ───────────────────────────────────────── */
+:root {
+  /* ── Colour Palette ── */
+  --forest:       #083572;
+  --forest-dark:  #062A4F;
+  --forest-mid:   #0064FF;
+  --gold:         #A69149;
+  --gold-light:   #BBA060;
+  --ivory:        #F7F4EE;
+  --ivory-warm:   #F0EBE2;
+  --ivory-mid:    #EDE8DF;
+  --charcoal:     #1A1714;
+  --stone:        #7A7469;
+  --stone-light:  #A09890;
+  --white:        #FFFFFF;
+  --navy:         #083572;
+  --navy-deep:    #062A4F;
+  --border:       rgba(26, 23, 20, 0.10);
+  --border-gold:  rgba(166, 145, 73, 0.30);
+
+  /* ── Typography ── */
+  --font-serif:   'Lucida Bright', 'Palatino Linotype', Georgia, serif;
+  --font-sans:    'NiveauGrotesk', 'Helvetica Neue', Arial, sans-serif;
+
+  /* ── Spacing ── */
+  --nav-height:   104px;
+  --section-v:    110px;
+  --section-v-sm: 70px;
+  --container:    1200px;
+  --pad-h:        48px;
+  --pad-h-sm:     24px;
+
+  /* ── Transitions ── */
+  --ease:         cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur:          0.35s;
+}
+
+/* Responsive spacing override */
+@media (max-width: 768px) {
+  :root {
+    --section-v:    64px;
+    --pad-h:        var(--pad-h-sm);
+  }
+}
+
+/* ─────────────────────────────────────────
+   RESET
+   ───────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--ivory);
+  color: var(--charcoal);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Hover: underline links globally, except button-styled anchors and logos */
+a:not([class*='btn']):not(.header__logo):hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-underline-thickness: 1px;
+  text-decoration-color: currentColor;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* ─────────────────────────────────────────
+   SHARED UTILITY CLASSES
+   ───────────────────────────────────────── */
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--pad-h);
+}
+
+/* Eyebrow label — NiveauGrotesk micro-caps */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--forest);
+}
+
+.eyebrow--light {
+  color: rgba(255, 255, 255, 0.60);
+}
+
+.eyebrow--stone {
+  color: var(--stone);
+}
+
+/* CTA Button — solid forest */
+.btn-cta {
+  display: inline-block;
+  background: var(--forest);
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  transition: background var(--dur) var(--ease);
+}
+.btn-cta:hover {
+  background: var(--forest-dark);
+}
+
+/* Text link — small arrow */
+.link-arrow {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--forest);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap var(--dur) var(--ease);
+}
+.link-arrow::after {
+  content: '→';
+  font-size: 12px;
+}
+.link-arrow:hover {
+  gap: 14px;
+}
+
+/* Decorative rule */
+.deco-rule {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ─────────────────────────────────────────
+   REVEAL ON SCROLL — elegant, slow motion
+   ───────────────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 1.1s var(--ease), transform 1.1s var(--ease);
+  will-change: opacity, transform;
+}
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+[data-reveal][data-reveal="fade"] {
+  transform: none;
+}
+[data-reveal][data-reveal="left"] {
+  transform: translateX(-36px);
+}
+[data-reveal][data-reveal="left"].is-revealed {
+  transform: none;
+}
+[data-reveal][data-reveal="right"] {
+  transform: translateX(36px);
+}
+[data-reveal][data-reveal="right"].is-revealed {
+  transform: none;
+}
+[data-reveal][data-reveal="zoom"] {
+  transform: scale(0.96);
+}
+[data-reveal][data-reveal="zoom"].is-revealed {
+  transform: none;
+}
+
+/* Ken Burns — slow cinematic zoom on hero image */
+@keyframes ken-burns {
+  from { transform: scale(1.02); }
+  to   { transform: scale(1.10); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .ken-burns { animation: none !important; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--ivory); }
+::-webkit-scrollbar-thumb { background: var(--forest); border-radius: 0; }

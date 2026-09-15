@@ -1,0 +1,221 @@
+/* ── Historia · 40 Verões à Beira-Mar ─────────────────────── */
+.historia {
+  background: var(--ivory-warm);
+  padding: calc(var(--section-v) + 40px) 0 var(--section-v);
+  overflow: hidden;
+}
+
+.historia__inner {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--pad-h);
+}
+
+/* ── Kicker ───────────────────────────────────────────────── */
+.historia__kicker {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.historia__kicker-rule {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.historia__kicker-text {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.30em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ── Headline block ───────────────────────────────────────── */
+.historia__head {
+  position: relative;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* Giant "40" — editorial numeral */
+.historia__num {
+  font-family: var(--font-serif);
+  font-size: clamp(9rem, 18vw, 15rem);
+  font-weight: 400;
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--gold);
+  text-shadow: none;
+  user-select: none;
+}
+
+.historia__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.02;
+  color: var(--charcoal);
+  text-transform: uppercase;
+}
+.historia__title em {
+  font-style: italic;
+  text-transform: none;
+  font-size: 0.82em;
+}
+
+.historia__rule {
+  width: 52px;
+  height: 1px;
+  background: var(--gold);
+  margin: 28px 0;
+}
+
+.historia__lede {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--stone);
+  max-width: 46ch;
+}
+
+/* ── Official seal ────────────────────────────────────────── */
+.historia__seal {
+  position: absolute;
+  right: 0;
+  top: -70px;
+  width: 132px;
+  height: 132px;
+  transform: rotate(-8deg);
+  animation: seal-spin 60s linear infinite;
+}
+
+@keyframes seal-spin {
+  to { transform: rotate(352deg); }
+}
+
+.historia__seal svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.seal-ring {
+  fill: none;
+}
+.seal-ring--outer { stroke: var(--gold); stroke-width: 0.6; stroke-dasharray: 1 2; }
+.seal-ring--inner { stroke: var(--gold); stroke-width: 0.35; }
+
+.seal-text__upper {
+  font-family: var(--font-sans);
+  font-size: 6.2px;
+  font-weight: 500;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  fill: var(--navy);
+}
+
+/* ── Columns ──────────────────────────────────────────────── */
+.historia__cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-top: 28px;
+  padding-top: 48px;
+}
+
+.historia__col-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 20px;
+}
+
+.historia__col-text {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--stone);
+}
+
+/* ── Timeline ─────────────────────────────────────────────── */
+.historia__timeline {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+  margin-top: 90px;
+  padding-top: 48px;
+}
+
+.historia__tl-item {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+}
+
+.historia__tl-year {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.historia__tl-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.historia__tl-text {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--stone);
+  max-width: 28ch;
+}
+
+/* ── Mobile ───────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .historia__inner { padding: 0 var(--pad-h-sm); }
+
+  .historia__head {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .historia__num {
+    font-size: clamp(7rem, 34vw, 10rem);
+    line-height: 1;
+  }
+  .historia__seal {
+    width: 96px;
+    height: 96px;
+    top: 8px;
+    right: 8px;
+  }
+
+  .historia__cols {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .historia__seal { animation: none; };
+}

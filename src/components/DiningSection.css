@@ -1,0 +1,178 @@
+/* ── Dining Section — two-tone split + overlapping image ──── */
+.dining {
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* ── Split backgrounds ────────────────────────────────────── */
+.dining__bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.dining__bg--top {
+  top: 0;
+  height: 66%;
+  background: var(--navy);
+}
+
+.dining__bg--bottom {
+  bottom: 0;
+  height: 34%;
+  background: var(--white);
+}
+
+/* ── Inner ────────────────────────────────────────────────── */
+.dining__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--pad-h);
+}
+
+/* ── Top block — header (grid 2 cols) ─────────────────────── */
+.dining__header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  padding-top: var(--section-v);
+  padding-bottom: 80px;
+}
+
+.dining__title-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.dining__eyebrow {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.dining__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 3.4vw, 3.1rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--white);
+  line-height: 1.10;
+  text-transform: uppercase;
+}
+
+.dining__text-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.dining__body {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.82;
+  color: rgba(255, 255, 255, 0.80);
+  max-width: 460px;
+}
+
+/* CTA text links row — arrows without circles */
+.dining__links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.dining__link {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap var(--dur) var(--ease);
+}
+.dining__link .arrow {
+  font-size: 12px;
+  transition: transform var(--dur) var(--ease);
+}
+.dining__link:hover { gap: 12px; }
+
+/* ── Central overlapping image ────────────────────────────── */
+.dining__media {
+  width: 78%;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.dining__photo {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  box-shadow: 0 30px 80px rgba(6, 42, 79, 0.35);
+}
+
+/* ── Bottom block — footer (centered) ─────────────────────── */
+.dining__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--section-v) * 0.4) 0 calc(var(--section-v) * 0.5);
+}
+
+.dining__cta {
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  padding: 15px 34px;
+  border: none;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease);
+}
+.dining__cta:hover { background: var(--navy-deep); }
+
+/* ── Mobile ───────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .dining__inner { padding: 0 var(--pad-h-sm); }
+  .dining__header {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-top: var(--section-v-sm);
+  }
+  .dining__media {
+    width: 92%;
+    margin-top: 12px;
+  }
+  .dining__footer {
+    padding: calc(var(--section-v-sm) * 0.6) 0 var(--section-v-sm);
+  }
+  .dining__links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .dining__bg--top { height: 52%; }
+  .dining__bg--bottom { height: 48%; }
+}

@@ -1,0 +1,142 @@
+/* ── Captivating / Occasions Section ─────────────────────── */
+.captivating {
+  background: var(--ivory);    /* matches page background — no "template" feel */
+  padding: var(--section-v) 0;
+}
+
+.captivating__inner {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--pad-h);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Header ───────────────────────────────────────────────── */
+.captivating__header {
+  text-align: center;
+  margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.captivating__eyebrow {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+.captivating__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--charcoal);
+  line-height: 1.14;
+  max-width: 560px;
+  text-transform: uppercase;
+}
+
+/* ── 3-col grid ───────────────────────────────────────────── */
+.captivating__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;                /* tight gap — editorial seam look */
+}
+
+/* ── Card ─────────────────────────────────────────────────── */
+.captivating__card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.captivating__card-img-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.captivating__card-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.8s var(--ease);
+  filter: brightness(0.9);
+}
+.captivating__card:hover .captivating__card-img {
+  transform: scale(1.05);
+  filter: brightness(1);
+}
+
+/* Overlay label on the photo */
+.captivating__card-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 32px 24px;
+  background: linear-gradient(to top, rgba(20, 42, 34, 0.70) 0%, transparent 55%);
+}
+
+.captivating__card-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 6px;
+}
+
+.captivating__card-label {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.captivating__card-link {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap var(--dur) var(--ease), color var(--dur) var(--ease);
+  align-self: flex-start;
+}
+.captivating__card-link::after { content: '→'; font-size: 11px; }
+.captivating__card:hover .captivating__card-link {
+  gap: 13px;
+  color: var(--white);
+}
+
+/* ── Mobile ───────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .captivating__inner { padding: 0 var(--pad-h-sm); }
+  .captivating__grid {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .captivating__card-img { aspect-ratio: 16 / 9; }
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  .captivating__grid { grid-template-columns: repeat(2, 1fr); }
+  .captivating__card-img { aspect-ratio: 3 / 4; }
+}

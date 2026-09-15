@@ -1,0 +1,114 @@
+/* ── Rooms Section ────────────────────────────────────────── */
+.rooms {
+  background: var(--white);
+  padding-top: calc(var(--section-v) * 0.8);
+  padding-bottom: 0;
+}
+
+.rooms__inner {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--pad-h);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Top block ────────────────────────────────────────────── */
+.rooms__top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: end;
+  padding-bottom: 24px;
+}
+
+.rooms__top-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.rooms__eyebrow {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 20px;
+}
+
+.rooms__title-top {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--charcoal);
+  line-height: 1.10;
+  text-transform: uppercase;
+}
+
+.rooms__top-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: flex-end;
+}
+
+.rooms__body {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.82;
+  color: var(--stone);
+}
+
+/* Top links — understated, no hover animation */
+.rooms__top-links {
+  display: flex;
+  gap: 32px;
+}
+
+.rooms__link-arrow {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--forest);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color var(--dur) var(--ease);
+}
+.rooms__link-arrow::after { content: '→'; font-size: 11px; }
+.rooms__link-arrow:hover { color: var(--forest); }
+
+/* ── Full-width photo ─────────────────────────────────────── */
+.rooms__photo-wrap {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  overflow: hidden;
+}
+
+.rooms__photo {
+  width: 100%;
+  height: 540px;
+  object-fit: cover;
+  object-position: center bottom;
+  display: block;
+}
+
+/* ── Mobile ───────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .rooms__inner { padding: 0 var(--pad-h-sm); }
+  .rooms__top { grid-template-columns: 1fr; gap: 32px; }
+  .rooms__photo { height: 320px; }
+}
+
+@media (max-width: 1024px) {
+  .rooms__photo { height: 460px; }
+}

@@ -1,0 +1,122 @@
+.nf {
+  min-height: 100vh;
+  background-color: var(--forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.nf__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+  z-index: 1;
+}
+
+.nf__number-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0.85;
+}
+
+.nf__four {
+  font-family: var(--font-serif);
+  font-size: clamp(7rem, 18vw, 13rem);
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: -0.04em;
+}
+
+.nf__zero-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nf__zero-text {
+  font-family: var(--font-serif);
+  font-size: clamp(7rem, 18vw, 13rem);
+  font-weight: 400;
+  color: var(--white);
+  opacity: 0.2;
+}
+
+.nf__flower-art {
+  position: absolute;
+  width: clamp(60px, 10vw, 110px);
+  height: clamp(70px, 12vw, 130px);
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Text wrap & Clock 'O' */
+.nf__text-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nf__subtitle {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  line-height: 1.05;
+}
+
+.nf__home-row {
+  display: flex;
+  align-items: center;
+  gap: 0.1em;
+}
+
+.nf__clock-o {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(2.4rem, 5vw, 4.2rem);
+  height: clamp(2.4rem, 5vw, 4.2rem);
+  margin: 0 0.05em;
+  vertical-align: middle;
+}
+
+.nf__clock-o svg {
+  width: 100%;
+  height: 100%;
+}
+
+.nf__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 28px;
+  border: 1px solid rgba(255,255,255,0.4);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-top: 1rem;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.nf__btn:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: var(--white);
+}
+
+.nf__btn-arrow {
+  font-size: 0.9rem;
+}

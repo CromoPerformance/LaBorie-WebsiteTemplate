@@ -2,6 +2,8 @@
 import './SuitesCarousel.css'
 import { useLang } from '../i18n'
 
+const SWIPE_THRESHOLD = 60
+
 const suiteList = [
   { key: 'luaDeMel', id: 'lua-de-mel', img: '/rooms/lua-de-mel.avif' },
   { key: 'suiteMasterMar', id: 'suite-master-mar', img: '/rooms/suite-master-mar.avif' },
@@ -16,6 +18,7 @@ const suiteList = [
 export default function SuitesCarousel() {
   const [index, setIndex] = useState(0)
   const [step, setStep] = useState(0)
+  const [swipeStart, setSwipeStart] = useState(null)
   const trackRef = useRef(null)
   const { t } = useLang()
 
@@ -31,6 +34,18 @@ export default function SuitesCarousel() {
 
   const len = suites.length
   const maxIndex = len // loop point: clone of first suite
+
+  function handleTouchStart(e) {
+    setSwipeStart(e.touches[0].clientX)
+  }
+  function handleTouchEnd(e) {
+    if (swipeStart === null) return
+    const delta = e.changedTouches[0].clientX - swipeStart
+    if (Math.abs(delta) < SWIPE_THRESHOLD) return
+    if (delta > 0) prev()
+    else next()
+    setSwipeStart(null)
+  }
 
   useEffect(() => {
     const track = trackRef.current
